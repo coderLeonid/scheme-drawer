@@ -1,0 +1,24 @@
+0main()
+1d,
+1min,
+1x
+1printf("Введите значения a, b, c, d: ")
+1scanf_s("%i%i%i%i", &a, &b, &c, &d)
+1if a<b min=a
+1else min=b
+1if b<d max=d
+1else max=b
+1if min-b<max+c x=min-b
+1else x=max+c
+1printf("Использование структуры Выбор: x = %i\n", x)
+1min=a
+1if min>b min=b
+1max=b
+1if max<d max=d
+1x=min-b
+1if x>max+c x=max+c
+1printf("Использование структуры Обход: x = %i\n", x)
+1printf("\n Повторить-1, Выход-2: ")
+1scanf_s("%i", &i)
+1if i==1) main(
+1return 0
