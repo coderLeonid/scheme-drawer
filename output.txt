@@ -1,24 +1,64 @@
 0main()
-1d,
-1min,
-1x
-1printf("Введите значения a, b, c, d: ")
-1scanf_s("%i%i%i%i", &a, &b, &c, &d)
-1if a<b min=a
-1else min=b
-1if b<d max=d
-1else max=b
-1if min-b<max+c x=min-b
-1else x=max+c
-1printf("Использование структуры Выбор: x = %i\n", x)
-1min=a
-1if min>b min=b
-1max=b
-1if max<d max=d
-1x=min-b
-1if x>max+c x=max+c
-1printf("Использование структуры Обход: x = %i\n", x)
-1printf("\n Повторить-1, Выход-2: ")
-1scanf_s("%i", &i)
-1if i==1) main(
-1return 0
+1var,
+2n1
+1re3,
+2y0
+1for ;;
+2cout << " Вид действия:" << endl
+2cout << " 1-вычисление предела последовательности" << endl
+2cout << " 2-завершение задачи" << endl
+2cout << " Введите вид действия -> "
+2cin >> var
+2switch var
+2case 1:
+3cout << " Введите значения y0, y1, y2 -> "
+3cin >> y0 >> y1 >> y2
+3cout << " Введите точность вычисления -> "
+3cin >> eps
+3if eps<=0||eps>0.1 {
+4cout << "Ошибка ввода. Значение eps д.б. >0 и  <=0.1" << endl
+4continue
+3re1=predel_1(y0, y1, y2, eps, n1=3)
+3if n1 != INT_MAX {
+4cout.precision(4)
+4cout << "Для цикла WHILE рез. = " << re1 << " n = " << n1 << endl
+3else cout << "Для цикла WHILE точность не достигнута" << endl
+3re2=predel_2(y0, y1, y2, eps, n2=2)
+3if n2 != INT_MAX {
+4cout.precision(4)
+4cout << "Для цикла DO..WHILE рез.= " << re2 << " n = " << n2 << endl
+3else cout << "Для цикла DO..WHILE точность не достигнута" << endl
+3re3=predel_3(y0, y1, y2, eps, n3=3)
+3if n3 != INT_MAX {
+4cout.precision(4)
+4cout << "Для цикла FOR рез.   = " << re3 << " n = " << n3 << endl
+3else cout << "Для цикла FOR точность не достигнута" << endl
+3break
+2default: return 0
+0predel_1(y0, y1, y2, eps, n)
+1y=(3*y0+2*y1-y2)/(3√(n^2-1)+1.5√(n^3+2.5))
+1while |y-y2|>eps&&n<INT_MAX {
+2y0=y1
+2y1=y2
+2y2=y
+2n++
+2y=(3*y0+2*y1-y2)/(3√(n^2-1)+1.5√(n^3+2.5))
+1return y
+0predel_2(y1, y2, y, eps, n)
+1do {
+2y0=y1
+2y1=y2
+2y2=y
+2n++
+2y=(3*y0+2*y1-y2)/(3√(n^2-1)+1.5√(n^3+2.5))
+1while |y-y2|>eps&&n<INT_MAX
+1return y
+0predel_3(y0, y1, y2, eps, n)
+1y=(3*y0+2*y1-y2)/(3√(n^2-1)+1.5√(n^3+2.5))
+1for ; |y-y2|>eps&&n<INT_MAX;  {
+2y0=y1
+2y1=y2
+2y2=y
+2n++
+2y=(3*y0+2*y1-y2)/(3√(n^2-1)+1.5√(n^3+2.5))
+1return y

@@ -5,9 +5,49 @@ with open("output.txt", "w", encoding="utf-8"):
     pass
 with open("file.txt", "r", encoding="utf-8") as f:
     lines = [line.strip('\n') for line in f]
+    
+def replace_1st_scope_pair(string):
+    start = end = None
+    counter = 0
+    for indx, i in enumerate(string):
+        if i in '()':
+            if i == '(':
+                counter += 1
+                if counter == 1:
+                    start = indx
+            else:
+                counter -= 1
+            if i == ')' and counter == 0:
+                end = indx
+                break
+    if not (start is None or end is None):
+        return string[:start] + string[start + 1:end] + string[end + 1:]
+    return string
+
+def replace_abs(string):
+    while re.search(r'f?abs\(', string):
+        start = end = None
+        counter = 0
+        for indx, i in enumerate(string):
+            if string[indx - 5:indx] == 'fabs(' or string[indx - 4:indx] == 'abs(' or string[indx] in (')', '('):
+                if string[indx - 5:indx] == 'fabs(' or string[indx - 4:indx] == 'abs(':
+                    counter = 1
+                    start = indx
+                elif string[indx] != ')':
+                    counter += 1
+                else:
+                    counter -= 1
+                if i == ')' and counter == 0:
+                    end = indx
+                    break
+        if not (start is None or end is None):
+            string = string[:start - 4 - (string[start - 5:start] == 'fabs(')] + '|' + string[start:end] + '|' + string[end + 1:]
+        else:
+            break
+    return string
 
 endline = lines[-1]
-func_mother = re.match('([a-z0-9_]+)( [a-z0-9_]+)+', endline)[0].split() if re.match('([a-z0-9_]+)( [a-z0-9_]+)+', endline) else ['what?']
+func_mother = re.match(r'([a-z0-9_]+)( [a-z0-9_]+)+', endline)[0].split() if re.match(r'([a-z0-9_]+)( [a-z0-9_]+)+', endline) else ['what?']
 
 save_pointer = False
 if re.search(r'PTR$', endline):
@@ -33,8 +73,9 @@ lines = [i for i in lines if not re.fullmatch(r'\s*', i)]
 lines = [i for indx, i in enumerate(lines[:-1]) if not (re.match(r'[а-яА-Я]|#include|using|typedef|\s*setlocale|\w+\(.+\)(?!\{)', i)) or re.match(r'\s*\{', lines[indx + 1])] # clearing first strings of code
 lines = [re.sub('} while', 'while', i) for i in lines]
 
-lines = [re.sub(r'((?:for|if|while|switch|case) )\((.*)\)', r'\1\2', re.sub(r'(.*)\{|\}(.*)', r'\1', i)) for i in lines]
-lines = [re.sub(r'f?abs\((.*?)\)', r'|\1|', re.sub(r'sqrt\((-?\d+(\.\d+)?)\)', r'√\1', i).replace('sqrt', '√')) for i in lines]
+lines = [replace_1st_scope_pair(i) if re.search(r'((?:for|if|while|switch|case) )\((.*)\)', i) else i for i in lines]
+lines = [re.sub(r'sqrt\((-?\d+(?:\.\d+)?)\)', r'√\1', i).replace('sqrt', '√') for i in lines]
+lines = [replace_abs(i) if re.search(r'f?abs\(.*?\)', i) else i for i in lines]
 lines = [re.sub(r'(\D)\.(\d)', r'\g<1>0.\2', re.sub(r'(\d)\.(\D|$)', r'\1\2', i)) for i in lines]
 for indx in range(len(lines)):
     while re.search(r'(\w+|\)|\|) ([\/\*\+\-=<>]=?|(?:&&|\|\|)) (\w+|\(|\||√)', lines[indx]):
