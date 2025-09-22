@@ -1,0 +1,107 @@
+{
+    "function": {
+        "name": "selectionSort",
+        "parameters": [
+            {
+                "name": "row",
+                "type": "RowType",
+                "reference": true
+            },
+            {
+                "name": "start",
+                "type": "int"
+            },
+            {
+                "name": "end",
+                "type": "int"
+            },
+            {
+                "name": "reverse",
+                "type": "bool"
+            }
+        ],
+        "returnType": "void"
+    },
+    "flowchart": {
+        "start": {
+            "type": "start",
+            "label": "Начало selectionSort",
+            "next": "sort_loop_init"
+        },
+        "sort_loop_init": {
+            "type": "operation",
+            "label": "i = end",
+            "next": "sort_loop_condition"
+        },
+        "sort_loop_condition": {
+            "type": "decision",
+            "condition": "i > start",
+            "true": "find_max_init",
+            "false": "reverse_check"
+        },
+        "find_max_init": {
+            "type": "operation",
+            "label": "maxIndex = start\nj = start + 1",
+            "next": "find_max_condition"
+        },
+        "find_max_condition": {
+            "type": "decision",
+            "condition": "j <= i",
+            "true": "compare_elements",
+            "false": "swap_elements"
+        },
+        "compare_elements": {
+            "type": "decision",
+            "condition": "row[j] > row[maxIndex]",
+            "true": "update_max",
+            "false": "increment_j"
+        },
+        "update_max": {
+            "type": "operation",
+            "label": "maxIndex = j",
+            "next": "increment_j"
+        },
+        "increment_j": {
+            "type": "operation",
+            "label": "j++",
+            "next": "find_max_condition"
+        },
+        "swap_elements": {
+            "type": "operation",
+            "label": "temp = row[i]\nrow[i] = row[maxIndex]\nrow[maxIndex] = temp\ni--",
+            "next": "sort_loop_condition"
+        },
+        "reverse_check": {
+            "type": "decision",
+            "condition": "reverse == true",
+            "true": "reverse_init",
+            "false": "end"
+        },
+        "reverse_init": {
+            "type": "operation",
+            "label": "i = start\nj = end",
+            "next": "reverse_condition"
+        },
+        "reverse_condition": {
+            "type": "decision",
+            "condition": "i < j",
+            "true": "reverse_swap",
+            "false": "end"
+        },
+        "reverse_swap": {
+            "type": "operation",
+            "label": "temp = row[i]\nrow[i] = row[j]\nrow[j] = temp\ni++\nj--",
+            "next": "reverse_condition"
+        },
+        "end": {
+            "type": "end",
+            "label": "Конец selectionSort"
+        }
+    },
+    "metadata": {
+        "description": "Сортировка выбором с возможностью обратного порядка",
+        "algorithm": "selection sort",
+        "author": "Generated from C++ code",
+        "version": "1.0"
+    }
+}
