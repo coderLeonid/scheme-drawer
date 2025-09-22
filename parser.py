@@ -47,7 +47,8 @@ def replace_abs(string):
     return string
 
 endline = lines[-1]
-func_mother = re.match(r'([a-z0-9_]+)( [a-z0-9_]+)+', endline)[0].split() if re.match(r'([a-z0-9_]+)( [a-z0-9_]+)+', endline) else ['what?']
+pattern_for_func = r'(\w*[a-z0-9_]+\w*)(\s\w*[a-z0-9_]+\w*)*'
+func_mother = re.match(pattern_for_func, endline)[0].split() if re.match(pattern_for_func, endline) else ['what?']
 
 save_pointer = False
 if re.search(r'PTR$', endline):
@@ -63,26 +64,34 @@ if 'typedef' in '\n'.join(lines):
     types = f'(?:int|double|float|bool|string|void|const|{'|'.join([re.sub(r'\[.*\]', '', i.split()[-1]) for i in lines if re.match('typedef', i)])})'
 type_links = f'{types}{'(?: (\*|&)+| |(\*|&)+ )' if not save_pointer else ' ?'}'
 
-lines = [re.sub(fr'^\s*{type_links}\w+(?:, (?:{type_links})?\w+)*$', '', i) for i in lines]
-lines = [re.sub(fr'(?<!typedef ){type_links}', '', i) for i in lines]
+lines = [re.sub(fr'^\s*{type_links}\w+(?:,\s(?:{type_links})?\w+)*$', '', i) for i in lines]
+lines = [re.sub(fr'(?<!typedef\s){type_links}', '', i) for i in lines]
 
 if save_pointer:
     lines = [re.sub(r', (\*|&) (\w+)', r', \1\2', i) for i in lines]
+    
 
 lines = [i for i in lines if not re.fullmatch(r'\s*', i)]
-lines = [i for indx, i in enumerate(lines[:-1]) if not (re.match(r'[а-яА-Я]|#include|using|typedef|\s*setlocale|\w+\(.+\)(?!\{)', i)) or re.match(r'\s*\{', lines[indx + 1])] # clearing first strings of code
+lines = [i for i in lines if not re.match(r'[а-яА-Я]|#include|using|typedef|\s*setlocale', i)] # clearing first strings of code
+lines = [i for indx, i in enumerate(lines[:-1]) if not (re.match(r'\w+\(.+\)$', i) and not re.match(r'\s*\{', lines[indx + 1]))]
+
 lines = [re.sub('} while', 'while', i) for i in lines]
+lines = [re.sub(r'((?:for|if|while|switch|case|[0-9a-zA-Z_]+\().*)(?::|\{)', r'\1', i) for i in lines]
+lines = [re.sub(r'; (\w)', r';\1', i) for i in lines]
 
 lines = [replace_1st_scope_pair(i) if re.search(r'((?:for|if|while|switch|case) )\((.*)\)', i) else i for i in lines]
 lines = [re.sub(r'sqrt\((-?\d+(?:\.\d+)?)\)', r'√\1', i).replace('sqrt', '√') for i in lines]
 lines = [replace_abs(i) if re.search(r'f?abs\(.*?\)', i) else i for i in lines]
 lines = [re.sub(r'(\D)\.(\d)', r'\g<1>0.\2', re.sub(r'(\d)\.(\D|$)', r'\1\2', i)) for i in lines]
+
+pattert_space_remove_near_signs = r'(\w+|\)|\||\])\s([\/\*\+\-=<>]=?|\&\&|\|\|)\s(\w+|\(|\||√|\[)'
 for indx in range(len(lines)):
-    while re.search(r'(\w+|\)|\|) ([\/\*\+\-=<>]=?|(?:&&|\|\|)) (\w+|\(|\||√)', lines[indx]):
-        lines[indx] = re.sub(r'(\w+|\)|\|) ([\/\*\+\-=<>]=?|(?:&&|\|\|)) (\w+|\(|\||√)', r'\1\2\3', lines[indx])
+    while re.search(pattert_space_remove_near_signs, lines[indx]):
+        lines[indx] = re.sub(pattert_space_remove_near_signs, r'\1\2\3', lines[indx])
         
 lines = [re.sub(r'(?<=\W)(\d+)\*([a-zA-Z](?!\d)|√|\()', r'\1\2', i) for i in lines]
 lines = [re.sub(r'(\))\*(\()', r'\1\2', i) for i in lines]
+
 
 for j in range(10, 0, -1):
     copyed_muls = {indx:re.search(fr'([a-zA-Z]\w*)(?:\*\1){{{j},}}', i) for indx, i in enumerate(lines) if re.search(fr'([a-zA-Z]\w*)(?:\*\1){{{j},}}', i)}
@@ -92,26 +101,33 @@ for j in range(10, 0, -1):
     for indx in pow_powers:
         lines[indx] = lines[indx].replace(copyed_muls[indx][0], pow_powers[indx])
 
+
 for indx, i in enumerate(lines):
-    a = re.search(r'(\w+|\(.*\))(\*\1)*', i)
+    # change to (\w+|\(.*\)) instead of \w+
+    a = re.search(r'(\w+)(\*\1)+', i)
     if a:
         a = a[0]
         serch = re.match(r'\w+', a)[0]
         i = re.sub(a, f'{serch}^{len(re.findall(serch, a))}', i)
         
-lines = [re.sub(r' {4}', ' ', i) for i in lines if not re.fullmatch('\W*', i)]
-
-for indx, i in enumerate(lines):
-    a = re.match(r'\s*', i)[0]
-    lines[indx] = re.sub(r'^\s*', str(len(a)), i)
-
 for indx in range(len(lines)):
-    while lines[indx].count('*(') > len(re.findall(r'[^ \(]\*\(', lines[indx])):
+    while lines[indx].count('*(') > len(re.findall(r'[^\s\(]\*\(', lines[indx])):
         lines[indx] = re.sub(r'(?<!\*)\(([^\(\)]*?)\)', r'OPENscope\1CLOSEscope', lines[indx])
         lines[indx] = re.sub(r'\*\((\w+(?:\[.+?\])*)\+(.+?)\)', r'\1\[\2\]', lines[indx])
         lines[indx] = lines[indx].replace('\[', '[').replace('\]', ']')
         lines[indx] = lines[indx].replace('OPENscope', '(').replace('CLOSEscope', ')')
         
+lines = [re.sub(r' {4}', ' ', i) for i in lines if not re.fullmatch('\W*', i)]
+
+
+for indx, i in enumerate(lines):
+    a = re.match(r'\s*', i)[0]
+    lines[indx] = re.sub(r'^\s*', str(len(a)), i)
+
+pattert_space_remove_near_signs = r'(\w+|\)|\||\])\s([\/\*\+\-=<>]=?|\&\&|\|\|)\s(\w+|\(|\||√|\[)'
+for indx in range(len(lines)):
+    while re.search(pattert_space_remove_near_signs, lines[indx]):
+        lines[indx] = re.sub(pattert_space_remove_near_signs, r'\1\2\3', lines[indx])
 
 lines = [re.sub(r'(?:, \w+)+$', '', i) for i in lines]
 lines_joined = '\n'.join(lines[:-1])
