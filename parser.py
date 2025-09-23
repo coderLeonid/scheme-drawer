@@ -1,5 +1,4 @@
 import re
-import pygame
 
 with open("output.txt", "w", encoding="utf-8"):
     pass
@@ -88,7 +87,7 @@ pattert_space_remove_near_signs = r'(\w+|\)|\||\])\s([\/\*\+\-=<>]=?|\&\&|\|\|)\
 for indx in range(len(lines)):
     while re.search(pattert_space_remove_near_signs, lines[indx]):
         lines[indx] = re.sub(pattert_space_remove_near_signs, r'\1\2\3', lines[indx])
-        
+
 lines = [re.sub(r'(?<=\W)(\d+)\*([a-zA-Z](?!\d)|√|\()', r'\1\2', i) for i in lines]
 lines = [re.sub(r'(\))\*(\()', r'\1\2', i) for i in lines]
 
