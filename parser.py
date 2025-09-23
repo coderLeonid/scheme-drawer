@@ -1,8 +1,6 @@
 import re
 import pygame
 
-with open("output.txt", "w", encoding="utf-8"):
-    pass
 with open("file.txt", "r", encoding="utf-8") as f:
     lines = [line.strip('\n') for line in f]
     
