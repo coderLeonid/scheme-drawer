@@ -1,0 +1,714 @@
+{
+    "type": "translation_unit",
+    "text": null,
+    "children": [
+        {
+            "type": "function_definition",
+            "text": null,
+            "children": [
+                {
+                    "type": "primitive_type",
+                    "text": "void"
+                },
+                {
+                    "type": "function_declarator",
+                    "text": null,
+                    "children": [
+                        {
+                            "type": "identifier",
+                            "text": "inputmatr"
+                        },
+                        {
+                            "type": "parameter_list",
+                            "text": null,
+                            "children": [
+                                {
+                                    "type": "(",
+                                    "text": "("
+                                },
+                                {
+                                    "type": "parameter_declaration",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "type_identifier",
+                                            "text": "matrix"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ",",
+                                    "text": ","
+                                },
+                                {
+                                    "type": "parameter_declaration",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "primitive_type",
+                                            "text": "int"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "str"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ",",
+                                    "text": ","
+                                },
+                                {
+                                    "type": "parameter_declaration",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "primitive_type",
+                                            "text": "int"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "sto"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ")",
+                                    "text": ")"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "compound_statement",
+                    "text": null,
+                    "children": [
+                        {
+                            "type": "{",
+                            "text": "{"
+                        },
+                        {
+                            "type": "expression_statement",
+                            "text": null,
+                            "children": [
+                                {
+                                    "type": "binary_expression",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "binary_expression",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "cout"
+                                                },
+                                                {
+                                                    "type": "<<",
+                                                    "text": "<<"
+                                                },
+                                                {
+                                                    "type": "string_literal",
+                                                    "text": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "\"",
+                                                            "text": "\""
+                                                        },
+                                                        {
+                                                            "type": "string_content",
+                                                            "text": " Введите построчно через пробел элементы"
+                                                        },
+                                                        {
+                                                            "type": "\"",
+                                                            "text": "\""
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "<<",
+                                            "text": "<<"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "endl"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ";",
+                                    "text": ";"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "expression_statement",
+                            "text": null,
+                            "children": [
+                                {
+                                    "type": "binary_expression",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "binary_expression",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "binary_expression",
+                                                    "text": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "binary_expression",
+                                                            "text": null,
+                                                            "children": [
+                                                                {
+                                                                    "type": "binary_expression",
+                                                                    "text": null,
+                                                                    "children": [
+                                                                        {
+                                                                            "type": "identifier",
+                                                                            "text": "cout"
+                                                                        },
+                                                                        {
+                                                                            "type": "<<",
+                                                                            "text": "<<"
+                                                                        },
+                                                                        {
+                                                                            "type": "string_literal",
+                                                                            "text": null,
+                                                                            "children": [
+                                                                                {
+                                                                                    "type": "\"",
+                                                                                    "text": "\""
+                                                                                },
+                                                                                {
+                                                                                    "type": "string_content",
+                                                                                    "text": " двумерного массива размера "
+                                                                                },
+                                                                                {
+                                                                                    "type": "\"",
+                                                                                    "text": "\""
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "<<",
+                                                                    "text": "<<"
+                                                                },
+                                                                {
+                                                                    "type": "identifier",
+                                                                    "text": "str"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "<<",
+                                                            "text": "<<"
+                                                        },
+                                                        {
+                                                            "type": "string_literal",
+                                                            "text": null,
+                                                            "children": [
+                                                                {
+                                                                    "type": "\"",
+                                                                    "text": "\""
+                                                                },
+                                                                {
+                                                                    "type": "string_content",
+                                                                    "text": "x"
+                                                                },
+                                                                {
+                                                                    "type": "\"",
+                                                                    "text": "\""
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "<<",
+                                                    "text": "<<"
+                                                },
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "sto"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "<<",
+                                            "text": "<<"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "endl"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ";",
+                                    "text": ";"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "expression_statement",
+                            "text": null,
+                            "children": [
+                                {
+                                    "type": "binary_expression",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "binary_expression",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "cout"
+                                                },
+                                                {
+                                                    "type": "<<",
+                                                    "text": "<<"
+                                                },
+                                                {
+                                                    "type": "string_literal",
+                                                    "text": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "\"",
+                                                            "text": "\""
+                                                        },
+                                                        {
+                                                            "type": "string_content",
+                                                            "text": " После ввода строки нажимайте <Enter>"
+                                                        },
+                                                        {
+                                                            "type": "\"",
+                                                            "text": "\""
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "<<",
+                                            "text": "<<"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "endl"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ";",
+                                    "text": ";"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "for_statement",
+                            "text": null,
+                            "children": [
+                                {
+                                    "type": "for",
+                                    "text": "for"
+                                },
+                                {
+                                    "type": "(",
+                                    "text": "("
+                                },
+                                {
+                                    "type": "declaration",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "primitive_type",
+                                            "text": "int"
+                                        },
+                                        {
+                                            "type": "init_declarator",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "i"
+                                                },
+                                                {
+                                                    "type": "=",
+                                                    "text": "="
+                                                },
+                                                {
+                                                    "type": "number_literal",
+                                                    "text": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": ";",
+                                            "text": ";"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "binary_expression",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "identifier",
+                                            "text": "i"
+                                        },
+                                        {
+                                            "type": "<",
+                                            "text": "<"
+                                        },
+                                        {
+                                            "type": "identifier",
+                                            "text": "str"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ";",
+                                    "text": ";"
+                                },
+                                {
+                                    "type": "update_expression",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "identifier",
+                                            "text": "i"
+                                        },
+                                        {
+                                            "type": "++",
+                                            "text": "++"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": ")",
+                                    "text": ")"
+                                },
+                                {
+                                    "type": "for_statement",
+                                    "text": null,
+                                    "children": [
+                                        {
+                                            "type": "for",
+                                            "text": "for"
+                                        },
+                                        {
+                                            "type": "(",
+                                            "text": "("
+                                        },
+                                        {
+                                            "type": "declaration",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "primitive_type",
+                                                    "text": "int"
+                                                },
+                                                {
+                                                    "type": "init_declarator",
+                                                    "text": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "identifier",
+                                                            "text": "j"
+                                                        },
+                                                        {
+                                                            "type": "=",
+                                                            "text": "="
+                                                        },
+                                                        {
+                                                            "type": "number_literal",
+                                                            "text": "0"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": ";",
+                                                    "text": ";"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "binary_expression",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "j"
+                                                },
+                                                {
+                                                    "type": "<",
+                                                    "text": "<"
+                                                },
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "sto"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": ";",
+                                            "text": ";"
+                                        },
+                                        {
+                                            "type": "update_expression",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "identifier",
+                                                    "text": "j"
+                                                },
+                                                {
+                                                    "type": "++",
+                                                    "text": "++"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": ")",
+                                            "text": ")"
+                                        },
+                                        {
+                                            "type": "expression_statement",
+                                            "text": null,
+                                            "children": [
+                                                {
+                                                    "type": "assignment_expression",
+                                                    "text": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "pointer_expression",
+                                                            "text": null,
+                                                            "children": [
+                                                                {
+                                                                    "type": "*",
+                                                                    "text": "*"
+                                                                },
+                                                                {
+                                                                    "type": "parenthesized_expression",
+                                                                    "text": null,
+                                                                    "children": [
+                                                                        {
+                                                                            "type": "(",
+                                                                            "text": "("
+                                                                        },
+                                                                        {
+                                                                            "type": "binary_expression",
+                                                                            "text": null,
+                                                                            "children": [
+                                                                                {
+                                                                                    "type": "pointer_expression",
+                                                                                    "text": null,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "type": "*",
+                                                                                            "text": "*"
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "parenthesized_expression",
+                                                                                            "text": null,
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "type": "(",
+                                                                                                    "text": "("
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "binary_expression",
+                                                                                                    "text": null,
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "type": "identifier",
+                                                                                                            "text": "a"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "+",
+                                                                                                            "text": "+"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "identifier",
+                                                                                                            "text": "i"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": ")",
+                                                                                                    "text": ")"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "type": "+",
+                                                                                    "text": "+"
+                                                                                },
+                                                                                {
+                                                                                    "type": "identifier",
+                                                                                    "text": "j"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "type": ")",
+                                                                            "text": ")"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "=",
+                                                            "text": "="
+                                                        },
+                                                        {
+                                                            "type": "binary_expression",
+                                                            "text": null,
+                                                            "children": [
+                                                                {
+                                                                    "type": "parenthesized_expression",
+                                                                    "text": null,
+                                                                    "children": [
+                                                                        {
+                                                                            "type": "(",
+                                                                            "text": "("
+                                                                        },
+                                                                        {
+                                                                            "type": "binary_expression",
+                                                                            "text": null,
+                                                                            "children": [
+                                                                                {
+                                                                                    "type": "binary_expression",
+                                                                                    "text": null,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "type": "identifier",
+                                                                                            "text": "str"
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "*",
+                                                                                            "text": "*"
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "identifier",
+                                                                                            "text": "sto"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "type": "-",
+                                                                                    "text": "-"
+                                                                                },
+                                                                                {
+                                                                                    "type": "number_literal",
+                                                                                    "text": "1"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "type": ")",
+                                                                            "text": ")"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "-",
+                                                                    "text": "-"
+                                                                },
+                                                                {
+                                                                    "type": "parenthesized_expression",
+                                                                    "text": null,
+                                                                    "children": [
+                                                                        {
+                                                                            "type": "(",
+                                                                            "text": "("
+                                                                        },
+                                                                        {
+                                                                            "type": "binary_expression",
+                                                                            "text": null,
+                                                                            "children": [
+                                                                                {
+                                                                                    "type": "binary_expression",
+                                                                                    "text": null,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "type": "identifier",
+                                                                                            "text": "sto"
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "*",
+                                                                                            "text": "*"
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "identifier",
+                                                                                            "text": "i"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "type": "+",
+                                                                                    "text": "+"
+                                                                                },
+                                                                                {
+                                                                                    "type": "identifier",
+                                                                                    "text": "j"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "type": ")",
+                                                                            "text": ")"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": ";",
+                                                    "text": ";"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "comment",
+                            "text": "// на этапе тестирования происходит"
+                        },
+                        {
+                            "type": "comment",
+                            "text": "// автоматическое заполнение значений"
+                        },
+                        {
+                            "type": "comment",
+                            "text": "// элементов массива"
+                        },
+                        {
+                            "type": "}",
+                            "text": "}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
