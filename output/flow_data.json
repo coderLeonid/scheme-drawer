@@ -1,0 +1,86 @@
+{
+  "filename": "test.cpp",
+  "functions": [
+    {
+      "type": "function_definition",
+      "text": "void inputmatr(matrix a, int str, int sto)\n{\n    cout << \" Введите построчно через пробел элементы\" << endl;\n    cout << \" двумерного массива размера \" << str << \"x\" << sto << endl;\n    cout << \" После ввода строки нажимайте <Enter>\" << endl;\n    for (int i = 0; i < str; i++)\n        for (int j = 0; j < sto; j++)\n            *(*(a + i) + j) = (str * sto - 1) - (sto * i + j); // на этапе тестирования происходит\n    // автоматическое заполнение значений\n    // элементов массива\n}",
+      "start_line": 1,
+      "end_line": 11,
+      "start_column": 0,
+      "end_column": 1,
+      "children": [
+        {
+          "type": "compound_statement",
+          "text": "{\n    cout << \" Введите построчно через пробел элементы\" << endl;\n    cout << \" двумерного массива размера \" << str << \"x\" << sto << endl;\n    cout << \" После ввода строки нажимайте <Enter>\" << endl;\n    for (int i = 0; i < str; i++)\n        for (int j = 0; j < sto; j++)\n            *(*(a + i) + j) = (str * sto - 1) - (sto * i + j); // на этапе тестирования происходит\n    // автоматическое заполнение значений\n    // элементов массива\n}",
+          "start_line": 2,
+          "end_line": 11,
+          "start_column": 0,
+          "end_column": 1,
+          "children": [
+            {
+              "type": "expression_statement",
+              "text": "cout << \" Введите построчно через пробел элементы\" << endl;",
+              "start_line": 3,
+              "end_line": 3,
+              "start_column": 4,
+              "end_column": 98,
+              "children": []
+            },
+            {
+              "type": "expression_statement",
+              "text": "cout << \" двумерного массива размера \" << str << \"x\" << sto << endl;",
+              "start_line": 4,
+              "end_line": 4,
+              "start_column": 4,
+              "end_column": 96,
+              "children": []
+            },
+            {
+              "type": "expression_statement",
+              "text": "cout << \" После ввода строки нажимайте <Enter>\" << endl;",
+              "start_line": 5,
+              "end_line": 5,
+              "start_column": 4,
+              "end_column": 85,
+              "children": []
+            },
+            {
+              "type": "for_statement",
+              "text": "for (int i = 0; i < str; i++)\n        for (int j = 0; j < sto; j++)\n            *(*(a + i) + j) = (str * sto - 1) - (sto * i + j);",
+              "start_line": 6,
+              "end_line": 8,
+              "start_column": 4,
+              "end_column": 62,
+              "children": [
+                {
+                  "type": "for_statement",
+                  "text": "for (int j = 0; j < sto; j++)\n            *(*(a + i) + j) = (str * sto - 1) - (sto * i + j);",
+                  "start_line": 7,
+                  "end_line": 8,
+                  "start_column": 8,
+                  "end_column": 62,
+                  "children": [
+                    {
+                      "type": "expression_statement",
+                      "text": "*(*(a + i) + j) = (str * sto - 1) - (sto * i + j);",
+                      "start_line": 8,
+                      "end_line": 8,
+                      "start_column": 12,
+                      "end_column": 62,
+                      "children": []
+                    }
+                  ],
+                  "condition": ""
+                }
+              ],
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "name": "inputmatr",
+      "return_type": "void"
+    }
+  ],
+  "control_structures": []
+}

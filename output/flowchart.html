@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блок-схема selectionSort</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Блок-схема функции selectionSort</h1>
+        <svg width="350" height="1980" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .block { fill: white; stroke: black; stroke-width: 2; }
+    .decision { fill: #e6f3ff; stroke: #0066cc; }
+    .startend { fill: #f0f0f0; stroke: #333; }
+    .text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+    .line { stroke: black; stroke-width: 2; fill: none; }
+</style>
+<defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+</defs>
+<path d="M 150.0 110.0 L 150.0 150.0 L 150.0 150.0 L 150.0 190.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 250.0 L 150.0 290.0 L 150.0 290.0 L 150.0 330.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 410.0 L 150.0 440.0 L 150.0 440.0 L 150.0 470.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 210.0 370.0 L 210.0 840.0 L 150.0 840.0 L 150.0 1310.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 530.0 L 150.0 570.0 L 150.0 570.0 L 150.0 610.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 690.0 L 150.0 720.0 L 150.0 720.0 L 150.0 750.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 210.0 650.0 L 210.0 910.0 L 150.0 910.0 L 150.0 1170.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 830.0 L 150.0 860.0 L 150.0 860.0 L 150.0 890.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 210.0 790.0 L 210.0 910.0 L 150.0 910.0 L 150.0 1030.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 950.0 L 150.0 990.0 L 150.0 990.0 L 150.0 1030.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1090.0 L 150.0 850.0 L 150.0 850.0 L 150.0 610.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1230.0 L 150.0 780.0 L 150.0 780.0 L 150.0 330.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1390.0 L 150.0 1420.0 L 150.0 1420.0 L 150.0 1450.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 210.0 1350.0 L 210.0 1610.0 L 150.0 1610.0 L 150.0 1870.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1510.0 L 150.0 1550.0 L 150.0 1550.0 L 150.0 1590.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1670.0 L 150.0 1700.0 L 150.0 1700.0 L 150.0 1730.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 210.0 1630.0 L 210.0 1750.0 L 150.0 1750.0 L 150.0 1870.0" class="line" marker-end="url(#arrowhead)"/>
+<path d="M 150.0 1790.0 L 150.0 1690.0 L 150.0 1690.0 L 150.0 1590.0" class="line" marker-end="url(#arrowhead)"/>
+<ellipse cx="150.0" cy="70.0" rx="100.0" ry="20.0" class="block startend"/>
+<text x="150.0" y="70.0" text-anchor="middle" class="text">Начало selectionSort</text>
+<rect x="50.0" y="190.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="210.0" text-anchor="middle" class="text">i = end</text>
+<polygon points="150.0,330.0 210.0,370.0 150.0,410.0 90.0,370.0" class="block decision"/>
+<text x="150.0" y="370.0" text-anchor="middle" class="text">i &gt; start</text>
+<rect x="50.0" y="470.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="490.0" text-anchor="middle" class="text">maxIndex = start, j =</text>
+<text x="150.0" y="505.0" text-anchor="middle" class="text">start + 1</text>
+<polygon points="150.0,610.0 210.0,650.0 150.0,690.0 90.0,650.0" class="block decision"/>
+<text x="150.0" y="650.0" text-anchor="middle" class="text">j &lt;= i</text>
+<polygon points="150.0,750.0 210.0,790.0 150.0,830.0 90.0,790.0" class="block decision"/>
+<text x="150.0" y="790.0" text-anchor="middle" class="text">row[j] &gt; row[maxIndex]</text>
+<rect x="50.0" y="890.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="910.0" text-anchor="middle" class="text">maxIndex = j</text>
+<rect x="50.0" y="1030.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="1050.0" text-anchor="middle" class="text">j++</text>
+<rect x="50.0" y="1170.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="1190.0" text-anchor="middle" class="text">swap elements and i--</text>
+<polygon points="150.0,1310.0 210.0,1350.0 150.0,1390.0 90.0,1350.0" class="block decision"/>
+<text x="150.0" y="1350.0" text-anchor="middle" class="text">reverse == true</text>
+<rect x="50.0" y="1450.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="1470.0" text-anchor="middle" class="text">i = start, j = end</text>
+<polygon points="150.0,1590.0 210.0,1630.0 150.0,1670.0 90.0,1630.0" class="block decision"/>
+<text x="150.0" y="1630.0" text-anchor="middle" class="text">i &lt; j</text>
+<rect x="50.0" y="1730.0" width="200.0" height="60.0" class="block"/>
+<text x="150.0" y="1750.0" text-anchor="middle" class="text">swap and</text>
+<text x="150.0" y="1765.0" text-anchor="middle" class="text">increment/decrement</text>
+<ellipse cx="150.0" cy="1890.0" rx="100.0" ry="20.0" class="block startend"/>
+<text x="150.0" y="1890.0" text-anchor="middle" class="text">Конец selectionSort</text>
+</svg>
+    </div>
+</body>
+</html>

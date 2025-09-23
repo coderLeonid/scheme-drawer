@@ -1,7 +1,6 @@
 import re
-import pygame
 
-with open("file.txt", "r", encoding="utf-8") as f:
+with open("data/file.txt", "r", encoding="utf-8") as f:
     lines = [line.strip('\n') for line in f]
     
 def replace_1st_scope_pair(string):
@@ -86,7 +85,7 @@ pattert_space_remove_near_signs = r'(\w+|\)|\||\])\s([\/\*\+\-=<>]=?|\&\&|\|\|)\
 for indx in range(len(lines)):
     while re.search(pattert_space_remove_near_signs, lines[indx]):
         lines[indx] = re.sub(pattert_space_remove_near_signs, r'\1\2\3', lines[indx])
-        
+
 lines = [re.sub(r'(?<=\W)(\d+)\*([a-zA-Z](?!\d)|√|\()', r'\1\2', i) for i in lines]
 lines = [re.sub(r'(\))\*(\()', r'\1\2', i) for i in lines]
 
@@ -164,6 +163,6 @@ for func in func_mother:
 for i in lines:
     print(i)
 
-with open("output.txt", "w", encoding="utf-8") as f:
+with open("output/output.txt", "w", encoding="utf-8") as f:
     for line in lines:
         f.write(line + "\n")
